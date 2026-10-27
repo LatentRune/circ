@@ -1,0 +1,146 @@
+<!doctype html>
+<!--
+  The Circ landing page, served by GitHub Pages from docs/. Plain HTML, no build step.
+  Community links: Discord, GitHub Discussions and Issues. Support links: Ko-fi and a
+  Stripe monthly subscription. Keep them in step with README.md and .github/FUNDING.yml.
+  Screenshots in images/shots/ come from tools/circ-shots:
+    python3 tools/site-images.py
+  The social card (images/social.jpg) and the icon come from brand/:
+    python3 tools/brand-images.py
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Circ: a trade ledger for WoW Classic Era</title>
+<meta name="description" content="Circ shares what your guild, friends or realm craft, buy and sell in World of Warcraft Classic Era, so gold stays with people you know.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://latentrune.github.io/circ/">
+<meta property="og:title" content="Circ: a trade ledger for WoW Classic Era">
+<meta property="og:description" content="See who makes it, who buys it and who has it, inside your own trade ledger.">
+<meta property="og:image" content="https://latentrune.github.io/circ/images/social.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1f1705">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="./"><img src="images/favicon.svg" alt="">Circ</a>
+  <nav>
+    <a href="docs.html">How it works</a>
+    <a class="wide" href="#help">Help build it</a>
+    <a class="wide" href="#community">Community</a>
+    <a href="https://github.com/LatentRune/circ">GitHub</a>
+  </nav>
+</div></header>
+
+<!-- Hero: what it is and where to get it -->
+<div class="hero wrap">
+  <img class="mark" src="images/icon.svg" alt="The Circ icon: a gold coin inside a ring of members">
+  <h1>Circ</h1>
+  <p class="tag">A trade ledger for your guild, friends or realm. See who makes it, who buys it and who has it,
+    so the gold stays with people you know.</p>
+  <p class="clients"><span class="client">For WoW Classic Era (1.15)</span></p>
+  <div class="btns">
+    <a class="btn gold big" href="https://github.com/LatentRune/circ/releases/latest"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 3h2v10.6l3.8-3.8 1.4 1.4L12 17.4l-6.2-6.2 1.4-1.4L11 13.6zM4 19h16v2H4z"/></svg>Download Circ</a>
+    <a class="btn big" href="docs.html">How it works</a>
+  </div>
+  <img class="shot" src="images/shots/ledger.webp" width="622" height="526"
+       alt="Circ's Ledger tab: five members with their professions, the gold traded with each this week, and the trades">
+  <p class="small" style="margin-top:10px">Free and open source. Nothing to set up: it opens by itself the first time.</p>
+</div>
+
+<!-- What it shows -->
+<section class="alt"><div class="wrap">
+  <h2>Trade with people you know</h2>
+  <p class="lead">Every member's addon shares what they craft, what they pay for materials, what they want to buy
+    and what they have to sell. Lookups work from day one: every Classic Era recipe comes with Circ.</p>
+  <div class="grid two gallery" style="margin-top:28px">
+    <figure><img class="shot" src="images/shots/lookup-member.webp" width="622" height="526" alt="Looking up Cara: her requests, what she sells, makes and buys">
+      <figcaption><b>Lookup.</b> Search an item or shift-click it in your bags to see who buys it, makes it or has it. Or look up a member.</figcaption></figure>
+    <figure><img class="shot" src="images/shots/requests-all.webp" width="622" height="526" alt="The Requests tab: your requests, what others want, and materials your recipes use">
+      <figcaption><b>Requests.</b> Post what you want to buy, see what others want, and request your recipes' materials in one click.</figcaption></figure>
+    <figure><img class="shot" src="images/shots/prices.webp" width="622" height="526" alt="The Prices tab: crafts and materials with suggested prices">
+      <figcaption><b>Prices.</b> Suggested from Auctionator, TSM or Aux. Leave one blank and buyers whisper you instead.</figcaption></figure>
+    <figure><img class="shot" src="images/shots/request-dialog.webp" width="622" height="526" alt="Posting a request to buy 20 Runecloth">
+      <figcaption><b>Buy requests.</b> Say how many and what you pay; members who make or carry it see it.</figcaption></figure>
+  </div>
+  <div class="grid two" style="margin-top:24px">
+    <figure><img class="shot" src="images/shots/vendor.webp" width="470" height="150" alt="Chat: before you vendor, ledger members buy Linen Cloth, Coarse Thread and Thorium Bar for more">
+      <figcaption><b>Before you vendor.</b> Circ reminds you when a member pays more than the vendor or the Auction House.</figcaption></figure>
+    <figure><img class="shot" src="images/shots/tooltip.webp" width="250" height="104" alt="Item tooltip with two Ledger lines" style="max-width:min(360px, 100%)">
+      <figcaption><b>On every tooltip.</b> Who buys it, sells it, makes it or carries it, right on the item.</figcaption></figure>
+  </div>
+  <p style="margin-top:28px"><a class="btn big" href="docs.html">See every part explained</a></p>
+</div></section>
+
+<!-- Install -->
+<section id="install"><div class="wrap">
+  <h2>Install</h2>
+  <ol class="steps">
+    <li>Download the latest <code>Circ-&lt;version&gt;.zip</code> from
+      <a href="https://github.com/LatentRune/circ/releases/latest">Releases</a>.</li>
+    <li>Unzip it into <code>World of Warcraft/_classic_era_/Interface/AddOns/</code>, so you have
+      <code>AddOns/Circ/Circ.toc</code>.</li>
+    <li>Restart the game, or type <code>/reload</code>.</li>
+  </ol>
+  <h3>That's all</h3>
+  <p>Circ opens by itself the first time, with a getting-started bar that shows one step at a time. You start in
+    <span class="ledger">START</span>, the ledger everyone with Circ shares. When you want your own ledger for a guild or
+    friends, <a href="docs.html#ledgers">turn on Ledger management</a> and invite them.</p>
+</div></section>
+
+<!-- Help build it -->
+<section id="help" class="alt"><div class="wrap">
+  <h2>Help build it</h2>
+  <p class="lead">Circ is built with its players. Tell us what works at the bank and the mailbox and what doesn't.</p>
+  <div class="grid" style="margin-top:24px">
+    <div class="card"><h3>Report a bug</h3><p>Something wrong, missing or throwing a Lua error? A screenshot is worth a paragraph.</p>
+      <a class="btn brand github" href="https://github.com/LatentRune/circ/issues/new?template=bug.yml"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>Report a bug</a></div>
+    <div class="card"><h3>Say how it looks</h3><p>Hard to read, too busy, in the way? That's the feedback we want most.</p>
+      <a class="btn brand github" href="https://github.com/LatentRune/circ/issues/new?template=looks.yml"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>Give feedback</a></div>
+    <div class="card"><h3>Change it yourself</h3><p>You don't need the game running. The screenshot tools draw Circ from its real code and put before-and-after pictures on your pull request.</p>
+      <a class="btn brand github" href="https://github.com/LatentRune/circ/blob/main/CONTRIBUTING.md"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>Start contributing</a></div>
+  </div>
+</div></section>
+
+<!-- Community and support -->
+<section id="community"><div class="wrap">
+  <div class="grid">
+    <div>
+      <h2>Community</h2>
+      <p>Find a ledger to join, talk to the people building Circ, and hear about new versions first.</p>
+      <div class="btns" style="margin-bottom:22px">
+        <a class="btn brand discord" href="https://discord.gg/wcCfAmMsFV"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>Join the Discord</a>
+        <a class="btn brand github" href="https://github.com/LatentRune/circ/discussions"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>Discussions</a>
+      </div>
+      <p class="small">Found a bug or have an idea? <a href="https://github.com/LatentRune/circ/issues">Open an issue</a> on GitHub.</p>
+    </div>
+    <div>
+      <h2>Support</h2>
+      <p>Circ is free. Support pays for the time it takes to test with real ledgers,
+        keep up with game patches, and review what the community sends in.</p>
+      <div class="btns">
+        <a class="btn brand stripe" href="https://buy.stripe.com/00wdR93RAdvsdxwaPwew801"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z"/></svg>Support monthly</a>
+        <a class="btn brand kofi" href="https://ko-fi.com/latentrune"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11.351 2.715c-2.7 0-4.986.025-6.83.26C2.078 3.285 0 5.154 0 8.61c0 3.506.182 6.13 1.585 8.493 1.584 2.701 4.233 4.182 7.662 4.182h.83c4.209 0 6.494-2.234 7.637-4a9.5 9.5 0 0 0 1.091-2.338C21.792 14.688 24 12.22 24 9.208v-.415c0-3.247-2.13-5.507-5.792-5.87-1.558-.156-2.65-.208-6.857-.208m0 1.947c4.208 0 5.09.052 6.571.182 2.624.311 4.13 1.584 4.13 4v.39c0 2.156-1.792 3.844-3.87 3.844h-.935l-.156.649c-.208 1.013-.597 1.818-1.039 2.546-.909 1.428-2.545 3.064-5.922 3.064h-.805c-2.571 0-4.831-.883-6.078-3.195-1.09-2-1.298-4.155-1.298-7.506 0-2.181.857-3.402 3.012-3.714 1.533-.233 3.559-.26 6.39-.26m6.547 2.287c-.416 0-.65.234-.65.546v2.935c0 .311.234.545.65.545 1.324 0 2.051-.754 2.051-2s-.727-2.026-2.052-2.026m-10.39.182c-1.818 0-3.013 1.48-3.013 3.142 0 1.533.858 2.857 1.949 3.897.727.701 1.87 1.429 2.649 1.896a1.47 1.47 0 0 0 1.507 0c.78-.467 1.922-1.195 2.623-1.896 1.117-1.039 1.974-2.364 1.974-3.897 0-1.662-1.247-3.142-3.039-3.142-1.065 0-1.792.545-2.338 1.298-.493-.753-1.246-1.298-2.312-1.298"/></svg>One-off tip on Ko-fi</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p>Circ is open source under the <a href="https://github.com/LatentRune/circ/blob/main/LICENSE">MIT license</a>.
+    <a href="https://github.com/LatentRune/circ">Source on GitHub</a>.</p>
+  <p>A fan-made addon. Not made, endorsed or supported by Blizzard Entertainment.
+    World of Warcraft is a trademark of Blizzard Entertainment, Inc.</p>
+</div></footer>
+</body>
+</html>

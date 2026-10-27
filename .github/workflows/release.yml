@@ -1,0 +1,24 @@
+# Push a tag like v0.14.0 to publish a release with Circ-0.14.0.zip, ready to unzip
+# into Interface/AddOns. The version in src/Circ.toc should match the tag.
+name: Release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the .toc version matches the tag
+        run: |
+          want="${GITHUB_REF_NAME#v}"
+          have="$(sed -n 's/^## Version: *//p' src/Circ.toc | tr -d '\r')"
+          [ "$want" = "$have" ] || { echo "Circ.toc says $have, tag says $want"; exit 1; }
+      - name: Zip the addon
+        run: python3 tools/package.py release
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" "dist/Circ-${GITHUB_REF_NAME#v}.zip" --title "Circ ${GITHUB_REF_NAME#v}" --generate-notes

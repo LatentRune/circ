@@ -1,0 +1,21 @@
+name: Idea
+description: Something Circ could show or do.
+labels: [idea]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What you'd like to see
+      description: What should show, and when.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it helps
+      description: The moment in play where you'd want it.
+  - type: input
+    id: who
+    attributes:
+      label: For which players
+      placeholder: crafters / buyers / ledger officers / everyone...

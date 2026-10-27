@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Ask on Discord
+    url: https://discord.gg/wcCfAmMsFV
+    about: Quick questions, help with setup, and finding a ledger to join.
+  - name: Start a discussion
+    url: https://github.com/LatentRune/circ/discussions
+    about: Bigger ideas and where Circ should go next.

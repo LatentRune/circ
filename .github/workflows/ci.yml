@@ -1,0 +1,32 @@
+# Checks every push and pull request: the layout rules, luacheck, and that every
+# screenshot scenario runs and draws the same way twice, and two clients talking to each other.
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Layout rules and Circ.toc
+        run: python3 tools/check.py
+      - name: luacheck
+        uses: lunarmodules/luacheck@v1
+        with:
+          args: src
+      - run: pip install lupa
+      - name: Every screenshot scenario runs
+        run: python3 tools/circ-shots/shoot.py --dump=/tmp/first
+      - name: And draws the same way twice
+        run: |
+          python3 tools/circ-shots/shoot.py --dump=/tmp/second
+          python3 tools/circ-shots/compare.py /tmp/first /tmp/second
+      - name: Two clients talking (invites, sync, the ledger, takeovers)
+        run: python3 tools/tests/protocol.py

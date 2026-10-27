@@ -1,0 +1,37 @@
+# Before-and-after screenshots of every scenario a pull request changes. This job runs
+# the PR's code with read-only access; screenshots-comment.yml posts the pictures.
+name: Screenshots
+on: pull_request
+permissions:
+  contents: read
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install lupa and Playwright
+        run: |
+          pip install lupa
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Screenshots of what changed
+        env:
+          BASE: origin/${{ github.base_ref }}
+          PR: ${{ github.event.number }}
+        run: |
+          python3 tools/pr-shots.py --base "$BASE" --out pr-shots
+          mkdir -p pr-shots
+          echo "$PR" > pr-shots/pr-number
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pr-shots
+          path: pr-shots
+          retention-days: 14

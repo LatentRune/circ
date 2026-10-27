@@ -1,0 +1,244 @@
+<!doctype html>
+<!--
+  How Circ works, part by part, for players. Served by GitHub Pages from docs/.
+  The commands follow the in-game help (src/settings/Help.lua) and README.md: when one
+  changes, update all three. Screenshots in images/shots/ are the tools/circ-shots
+  scenarios of the same name:
+    python3 tools/site-images.py
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Circ works</title>
+<meta name="description" content="Every part of the Circ trade ledger addon for WoW Classic Era explained, with screenshots.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://latentrune.github.io/circ/docs.html">
+<meta property="og:title" content="How Circ works">
+<meta property="og:description" content="See who makes it, who buys it and who has it, inside your own trade ledger.">
+<meta property="og:image" content="https://latentrune.github.io/circ/images/social.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1f1705">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="./"><img src="images/favicon.svg" alt="">Circ</a>
+  <nav>
+    <a class="on" href="docs.html">How it works</a>
+    <a class="wide" href="./#install">Install</a>
+    <a class="wide" href="./#community">Community</a>
+    <a href="https://github.com/LatentRune/circ">GitHub</a>
+  </nav>
+</div></header>
+
+<div class="docs">
+<nav class="toc" aria-label="Contents">
+  <a href="#start">Getting started</a>
+  <a href="#ledgers">Ledgers</a>
+  <a class="sub" href="#own-ledger">Your own ledger</a>
+  <a class="sub" href="#connecting">Connecting</a>
+  <a class="sub" href="#takeovers">If someone takes the channel</a>
+  <a href="#lookup">Lookup</a>
+  <a href="#requests">Requests</a>
+  <a href="#prices">Prices</a>
+  <a href="#ledger-tab">The Ledger tab</a>
+  <a href="#reminders">Reminders and tooltips</a>
+  <a href="#shared">What Circ shares</a>
+  <a href="#settings">Settings</a>
+  <a href="#commands">Commands</a>
+  <a href="#limits">Known limits</a>
+</nav>
+
+<article>
+
+<section id="start">
+  <h2>Getting started</h2>
+  <p class="clients"><span class="client">For WoW Classic Era (1.15)</span></p>
+  <p>Circ opens by itself the first time you log in, with a <span class="term">getting-started bar</span> along
+    the bottom of the window. It shows one step at a time and ticks each off as you do it:</p>
+  <ol class="steps">
+    <li>Open each of your profession windows once, so your ledger sees what you craft.</li>
+    <li>Look up an item to see who buys it or makes it.</li>
+    <li>Check your prices.</li>
+    <li>Post a request for something you need.</li>
+    <li>Meet your ledger: who is in it and the gold you trade.</li>
+  </ol>
+  <figure><img class="shot" src="images/shots/first-run.webp" width="622" height="526" alt="The Circ window on first login with the getting-started bar" style="max-width:min(622px, 100%)">
+    <figcaption>The first login: you're in START, and the bar shows step 1 of 5.</figcaption></figure>
+  <p>Use the arrows to look back at a step or skip ahead. When you're done, the bar goes away; you can bring it back
+    on the Settings tab.</p>
+</section>
+
+<section id="ledgers">
+  <h2>Ledgers</h2>
+  <p>A <span class="term">ledger</span> is a group of players who share what they make, buy and sell. Every member's
+    Circ talks to the others through a hidden chat channel, so there's no server and nothing to sign up for.</p>
+  <p>Everyone starts in <span class="ledger">START</span>, the starter ledger shared by every player on your realm and
+    faction with Circ. It's a good way to see Circ working on day one. An account is in one ledger at a time, and
+    your alts on the same account join it automatically.</p>
+  <h3 id="own-ledger">Your own ledger</h3>
+  <p>For a guild or a group of friends, make a ledger of your own. Turn on <span class="term">Ledger management</span>
+    under Settings &gt; Advanced, then on the Ledger tab:</p>
+  <ul>
+    <li><b>Create</b> a ledger with a 5-letter name, like SMITH. Creating one moves you out of START.</li>
+    <li><b>Invite</b> a player by name, or target them and press Invite. Their Circ asks them whether to join;
+      they need Circ, must be online, and on your faction.</li>
+    <li><b>Leave</b> takes you back to START.</li>
+  </ul>
+  <figure><img class="shot" src="images/shots/ledger-management.webp" width="622" height="526" alt="The Ledger tab with Ledger management on: invite, create and leave" style="max-width:min(622px, 100%)">
+    <figcaption>Ledger management adds Invite, Create and Leave to the Ledger tab.</figcaption></figure>
+  <h3 id="connecting">Connecting</h3>
+  <p>After you log in, Circ can take up to two minutes to reach your ledger's channel. It keeps trying by itself, and
+    again whenever you click in Circ. Until then the Ledger tab says so, with a <b>Connect</b> button.</p>
+  <figure><img class="shot" src="images/shots/connecting.webp" width="622" height="526" alt="The Ledger tab while connecting, with a Connect button" style="max-width:min(622px, 100%)">
+    <figcaption>Still connecting: everything else works from what Circ already knows.</figcaption></figure>
+  <h3 id="takeovers">If someone takes the channel</h3>
+  <p>A ledger's channel is an ordinary chat channel underneath. If a stranger becomes its owner, sets a password or
+    kicks members, Circ notices and offers to move the ledger to a new channel. Every member's Circ works out the same
+    new channel, so everyone follows without having to talk about it. When the channel's owner logs out, Circ hands
+    ownership to an established member.</p>
+</section>
+
+<section id="lookup">
+  <h2>Lookup</h2>
+  <p>Type an item, or shift-click it in your bags, and pick what you want to know:</p>
+  <ul>
+    <li><span class="term">Who buys it</span>: members with a request out for it, or who pay for it as a material.</li>
+    <li><span class="term">Who makes it</span>: crafters with the recipe, their skill and what they charge.</li>
+    <li><span class="term">Who has it</span>: members selling it, and members carrying it in their bags.</li>
+  </ul>
+  <p>Type a member's name instead to see everything they make, sell, buy and request. Every row has a
+    <b>Whisper</b> button to start the conversation.</p>
+  <figure><img class="shot" src="images/shots/lookup-member.webp" width="622" height="526" alt="Looking up Cara: her requests, items for sale, crafts and materials she buys" style="max-width:min(622px, 100%)">
+    <figcaption>A member lookup: what Cara wants, sells, makes and buys.</figcaption></figure>
+  <p>Every Classic Era recipe comes with Circ, so lookups know what an item is made from before anyone scans, but each
+    crafter still opens their profession windows once so the ledger knows who makes what.</p>
+</section>
+
+<section id="requests">
+  <h2>Requests</h2>
+  <p>Post what you want to buy: an item, how many, and what you pay each. Members see it under
+    <span class="term">What others want to buy</span>, and on the item's tooltip.</p>
+  <figure><img class="shot" src="images/shots/requests-all.webp" width="622" height="526" alt="The Requests tab" style="max-width:min(622px, 100%)">
+    <figcaption>Your requests, what others want, and the materials your recipes use.</figcaption></figure>
+  <p><span class="term">Materials your recipes use</span> lists what goes into your crafts with a <b>Request</b>
+    button on each, so stocking up is one click.</p>
+  <figure><img class="shot" src="images/shots/request-dialog.webp" width="622" height="526" alt="The Request to buy dialog for Runecloth" style="max-width:min(622px, 100%)">
+    <figcaption>Posting a request: quantity and price each.</figcaption></figure>
+</section>
+
+<section id="prices">
+  <h2>Prices</h2>
+  <p>The Prices tab holds what you charge for your crafts and what you pay for materials. With Auctionator, TSM or Aux
+    installed, Circ suggests prices in gray: materials at 80% of the Auction House price and crafts at the cost of
+    their materials plus 10%. Both can be changed on the Settings tab or with <code>/circ pct</code> and
+    <code>/circ margin</code>.</p>
+  <p>Type a price or scroll the mouse wheel over it to set your own. Leave one blank and buyers whisper you instead.</p>
+  <figure><img class="shot" src="images/shots/prices.webp" width="622" height="526" alt="The Prices tab with crafts and materials" style="max-width:min(622px, 100%)">
+    <figcaption>Crafts and materials, with suggested prices.</figcaption></figure>
+  <p>To sell something you don't craft, like BoE gear or spare materials, shift-click it in your bags. It stays
+    listed while you carry it.</p>
+</section>
+
+<section id="ledger-tab">
+  <h2>The Ledger tab</h2>
+  <p>Who is in your ledger and online, with their professions; the gold you traded with each member over the last
+    week; and every trade. Both sides of a trade report it, and an entry shows
+    <span style="color:var(--ok)">confirmed</span> once the two reports match.</p>
+  <figure><img class="shot" src="images/shots/ledger.webp" width="622" height="526" alt="The Ledger tab: members, gold traded and trades" style="max-width:min(622px, 100%)">
+    <figcaption>Members, gold traded this week, and trades.</figcaption></figure>
+  <p>Members who were offline catch up on the trades they missed when they next log in.</p>
+</section>
+
+<section id="reminders">
+  <h2>Reminders and tooltips</h2>
+  <p>Before you sell to a vendor or post an auction, Circ says so in chat if a ledger member pays more.</p>
+  <figure><img class="shot" src="images/shots/vendor.webp" width="470" height="150" alt="Chat: before you vendor, ledger members buy three of these items for more" style="max-width:min(470px, 100%)">
+    <figcaption>A reminder at the vendor.</figcaption></figure>
+  <p>Item tooltips get <span class="ledger">Ledger</span> lines: who buys it and the best offer, who sells it and
+    from what price, who makes it, and who carries it.</p>
+  <figure><img class="shot" src="images/shots/tooltip.webp" width="250" height="104" alt="A Linen Cloth tooltip with two Ledger lines" style="max-width:min(250px, 100%)">
+    <figcaption>Ledger lines on an item tooltip.</figcaption></figure>
+</section>
+
+<section id="shared">
+  <h2>What Circ shares</h2>
+  <p>Only with the members of your ledger, and only through its hidden channel:</p>
+  <ul>
+    <li>Your characters' professions, skill levels and recipes.</li>
+    <li>Your prices, your requests and the items you list for sale.</li>
+    <li>The tradeable items in your bags, so <span class="term">Who has it</span> can find them. Gray junk and
+      soulbound items are never shared, and you can turn this off with <span class="term">Share my bags with my ledger</span>.</li>
+    <li>Trades you complete with other members: the gold and items each side gave.</li>
+  </ul>
+  <p>Nothing is shared with players outside your ledger, and Circ never trades or moves gold for you.</p>
+</section>
+
+<section id="settings">
+  <h2>Settings</h2>
+  <p>Every part has a checkbox on the Settings tab, and changes apply right away:</p>
+  <ul>
+    <li><b>Show me in lookups</b>: list your own crafts and requests when you look up an item.</li>
+    <li><b>Vendor and Auction House reminders</b></li>
+    <li><b>Ledger lines on item tooltips</b></li>
+    <li><b>Minimap button</b></li>
+    <li><b>Share my bags with my ledger</b></li>
+    <li><b>Getting-started guide</b></li>
+    <li><b>Suggested prices</b>: the share of the Auction House price for materials, and the margin on crafts.</li>
+    <li><b>Ledger management</b> (Advanced): create, invite and leave.</li>
+  </ul>
+</section>
+
+<section id="commands">
+  <h2>Commands</h2>
+  <div class="scroll"><table>
+    <tr><th>Command</th><th>What it does</th></tr>
+    <tr><td><code>/circ</code></td><td>Open or close the window</td></tr>
+    <tr><td><code>/circ find &lt;item&gt;</code></td><td>Look up an item</td></tr>
+    <tr><td><code>/circ request &lt;item&gt; &lt;qty&gt; &lt;price&gt;</code></td><td>Post a request to buy; <code>/circ unrequest &lt;item&gt;</code> takes it down</td></tr>
+    <tr><td><code>/circ buy &lt;item&gt; &lt;price|off|auto&gt;</code></td><td>What you pay for a material</td></tr>
+    <tr><td><code>/circ sell &lt;item&gt; &lt;price|off|auto&gt;</code></td><td>What you charge for a craft</td></tr>
+    <tr><td><code>/circ shop &lt;item&gt; [qty]</code></td><td>Shopping list: who makes it, and where to get its materials</td></tr>
+    <tr><td><code>/circ pct &lt;n&gt;</code> / <code>/circ margin &lt;n&gt;</code></td><td>How suggested prices are worked out</td></tr>
+    <tr><td><code>/circ create &lt;NAME&gt;</code></td><td>Start a ledger with a 5-letter name (needs Ledger management)</td></tr>
+    <tr><td><code>/circ invite &lt;player&gt;</code></td><td>Invite a player to your ledger (needs Ledger management)</td></tr>
+    <tr><td><code>/circ leave</code></td><td>Leave your ledger and go back to START (needs Ledger management)</td></tr>
+    <tr><td><code>/circ reconnect</code></td><td>Reconnect to your ledger's channel</td></tr>
+    <tr><td><code>/circ nudges</code>, <code>tooltip</code>, <code>minimap</code> <code>on|off</code></td><td>Turn the reminders, tooltip lines or minimap button on or off</td></tr>
+    <tr><td><code>/circ help</code></td><td>List every command</td></tr>
+  </table></div>
+  <p class="small" style="margin-top:10px">Prices can be written <code>1g20s</code>, <code>35s</code>, <code>80c</code> or <code>1.5</code> (gold).</p>
+</section>
+
+<section id="limits">
+  <h2>Known limits</h2>
+  <ul>
+    <li>Reaching the ledger's channel can take up to two minutes after login.</li>
+    <li>The bundled item and recipe names are English. Other languages work with your own scans; a crafter's skill
+      level may be blank.</li>
+    <li>The ledger's channel is hidden in Circ but still shows in the game's own channel list.</li>
+  </ul>
+  <div class="note">Something not working as described here? <a href="https://github.com/LatentRune/circ/issues/new?template=bug.yml">Report a bug</a>
+    or ask on <a href="https://discord.gg/wcCfAmMsFV">Discord</a>.</div>
+</section>
+
+</article>
+</div>
+
+<footer><div class="wrap">
+  <p>Circ is open source under the <a href="https://github.com/LatentRune/circ/blob/main/LICENSE">MIT license</a>.
+    <a href="https://github.com/LatentRune/circ">Source on GitHub</a>.</p>
+  <p>A fan-made addon. Not made, endorsed or supported by Blizzard Entertainment.
+    World of Warcraft is a trademark of Blizzard Entertainment, Inc.</p>
+</div></footer>
+</body>
+</html>

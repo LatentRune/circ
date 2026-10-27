@@ -1,0 +1,94 @@
+<!doctype html>
+<!--
+  Circ's theme sheet: the colors, art and type the addon already uses, with where each comes
+  from, so the website, icons and social cards match the game. Rendered to brand/sheet.webp
+  by tools/brand-images.py. Line numbers are as of 0.14.0; search for the value if they move.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Circ theme sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<style>
+  :root { --panel: #1f1705; --gold: #ffd100; --green: #33ff99; --muted: #a6a6a6; }
+  body { margin: 0; background: #15110a; color: #fff; font: 15px/1.45 system-ui, "Segoe UI", Roboto, Arial, sans-serif; width: 1200px; }
+  .page { padding: 40px 48px 44px; }
+  header { display: flex; align-items: center; gap: 22px; margin-bottom: 28px; }
+  header img { width: 96px; height: 96px; }
+  h1 { font: 56px/1 Marcellus, Georgia, serif; color: var(--gold); margin: 0; }
+  h1 + p { color: var(--muted); margin: 6px 0 0; font-size: 17px; }
+  h2 { font: 24px Marcellus, Georgia, serif; color: var(--gold); margin: 30px 0 12px; border-bottom: 1px solid rgba(255, 209, 0, .35); padding-bottom: 6px; }
+  .swatches { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .sw { background: #0d0d0d; border: 2px solid #000; }
+  .sw .c { height: 70px; border-bottom: 2px solid #000; }
+  .sw div:last-child { padding: 8px 10px 10px; }
+  .sw b { display: block; }
+  .sw code { color: var(--muted); font-size: 12.5px; }
+  .sw small { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .row { display: flex; gap: 28px; align-items: flex-start; }
+  .row > div { flex: 1; }
+  .type p { margin: 0 0 8px; }
+  .display { font: 34px Marcellus, Georgia, serif; color: var(--gold); }
+  .bar { background: var(--panel); border: 2px solid rgba(255, 209, 0, .8); border-radius: 6px; padding: 12px 16px; }
+  .bar .t { color: var(--gold); font-size: 12px; letter-spacing: .5px; }
+  .bar .t span { color: var(--muted); margin-left: 8px; }
+  .dots { margin-top: 8px; display: flex; gap: 6px; }
+  .dots i { width: 10px; height: 10px; border-radius: 50%; background: #595959; }
+  .btn { display: inline-block; padding: 8px 18px; font-weight: 700; border: 2px solid #000; }
+  .gold { background: var(--gold); color: #1a1400; }
+  .ink { background: #0d0d0d; color: #fff; box-shadow: inset 0 0 0 1px #3a3020; }
+  .chat { background: rgba(0, 0, 0, .55); padding: 10px 12px; font-size: 14px; }
+  ul { margin: 0; padding-left: 18px; color: var(--muted); }
+  ul b { color: #fff; font-weight: 600; }
+</style>
+</head>
+<body><div class="page">
+<header>
+  <img src="../docs/images/icon.svg" alt="">
+  <div><h1>Circ</h1><p>Theme sheet: the addon's own colors, art and type, for the site and every icon.</p></div>
+</header>
+
+<h2>Colors</h2>
+<div class="swatches">
+  <div class="sw"><div class="c" style="background:#ffd100"></div><div><b>Gold</b><code>#ffd100</code><small>Headings, section lines, the one accent. T.GOLD, ui/widgets/Text.lua:9; highlight and lines, ui/widgets/List.lua:32,38</small></div></div>
+  <div class="sw"><div class="c" style="background:#33ff99"></div><div><b>Circ green</b><code>#33ff99</code><small>The chat prefix and tooltip "Ledger:" lines. core/Namespace.lua:16, ui/Tooltip.lua:11</small></div></div>
+  <div class="sw"><div class="c" style="background:#1f1705"></div><div><b>Panel</b><code>#1f1705</code><small>Getting-started bar, 0.12 0.09 0.02. ui/Guide.lua:71</small></div></div>
+  <div class="sw"><div class="c" style="background:#0d0d0d"></div><div><b>Ink</b><code>#0d0d0d</code><small>Search suggestions, 0.05. ui/widgets/Suggest.lua:45</small></div></div>
+  <div class="sw"><div class="c" style="background:#a6a6a6"></div><div><b>Muted</b><code>#a6a6a6</code><small>Subheaders and step counts, 0.65. ui/Window.lua:227, ui/Guide.lua:79</small></div></div>
+  <div class="sw"><div class="c" style="background:#40ff40"></div><div><b>Confirmed</b><code>#40ff40</code><small>Connected, confirmed trades, done. T.GREEN, ui/widgets/Text.lua:9</small></div></div>
+  <div class="sw"><div class="c" style="background:#ffff00"></div><div><b>Waiting</b><code>#ffff00</code><small>Connecting, one-sided trades. ui/Window.lua:72, ui/Ledger.lua:75</small></div></div>
+  <div class="sw"><div class="c" style="background:#ff5050"></div><div><b>Problem</b><code>#ff5050</code><small>Errors in a ledger name. ui/Ledger.lua:99</small></div></div>
+  <div class="sw"><div class="c" style="background:#8a8a8a"></div><div><b>Gray</b><code>#8a8a8a</code><small>Offline members, hints. T.GRAY, ui/widgets/Text.lua:9</small></div></div>
+  <div class="sw"><div class="c" style="background:#595959"></div><div><b>Step to come</b><code>#595959</code><small>Guide dots, 0.35. ui/Guide.lua:55</small></div></div>
+</div>
+
+<div class="row">
+<div class="type">
+  <h2>Type</h2>
+  <p class="display">Marcellus for headings</p>
+  <p>In game Circ uses the game's own fonts (GameFontNormal, GameFontHighlight and their sizes; ui/Window.lua:177-222),
+    which are Friz Quadrata. It isn't free to use on the web, so the site uses <b>Marcellus</b> from Google Fonts, a
+    flared capital face in the same spirit, for headings, and the reader's system font for text.</p>
+</div>
+<div>
+  <h2>Art the addon uses</h2>
+  <ul>
+    <li><b>Coin</b>: INV_Misc_Coin_02 on the minimap button (ui/Minimap.lua:28); the icon's coin comes from it.</li>
+    <li><b>Money</b>: the gold, silver and copper icons (ui/widgets/MoneyInput.lua:9-11).</li>
+    <li><b>Panels</b>: tooltip background and border (ui/Guide.lua:68-72, ui/widgets/Suggest.lua:42-45).</li>
+    <li><b>Window and buttons</b>: the game's BasicFrameTemplateWithInset and UIPanelButtonTemplate (ui/Window.lua:163, ui/widgets/Toolbar.lua:8).</li>
+  </ul>
+</div>
+</div>
+
+<h2>In use</h2>
+<div class="row">
+  <div class="bar"><div class="t">GETTING STARTED<span>Step 2 of 5</span></div>
+    <div>Look up an item to see who in your ledger buys it or makes it.</div>
+    <div class="dots"><i style="background:#40ff40"></i><i style="background:#ffd100"></i><i></i><i></i><i></i></div></div>
+  <div class="chat"><span style="color:#33ff99">Circ</span>: Before you vendor, ledger members buy:<br>
+    [Linen Cloth]: Cara pays 60c (vendor 13c)</div>
+  <div><a class="btn gold">Download Circ</a> <a class="btn ink">How it works</a></div>
+</div>
+</div></body>
+</html>

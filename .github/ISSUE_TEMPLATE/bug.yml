@@ -1,0 +1,39 @@
+name: Bug
+description: Something in Circ is wrong, missing or throws a Lua error.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: when
+    attributes:
+      label: When it happens
+      description: What you were doing (searching, a buy request, a trade, joining a ledger). Every time, or only sometimes?
+  - type: input
+    id: client
+    attributes:
+      label: Client, class and level
+      placeholder: Classic Era 1.15.x, tailor and enchanter, level 60
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Circ version
+      description: Shown in the AddOns list.
+  - type: textarea
+    id: error
+    attributes:
+      label: Lua error
+      description: Turn errors on with `/console scriptErrors 1` (or use BugSack) and paste it here.
+      render: text
+  - type: textarea
+    id: shot
+    attributes:
+      label: Screenshot
+      description: Drag one in, so we can see which part you mean.

@@ -1,0 +1,27 @@
+name: How something looks
+description: Hard to read, too busy, too small, wrong color, in the way.
+labels: [looks]
+body:
+  - type: input
+    id: part
+    attributes:
+      label: Which part
+      placeholder: the Lookup tab, the item tooltip, the buy request window, the minimap button...
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What's wrong with it
+      description: When does it get in the way or get missed?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would read better
+  - type: textarea
+    id: shot
+    attributes:
+      label: Screenshot
+      description: From the game if you can; your UI scale and resolution help too.

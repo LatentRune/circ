@@ -1,0 +1,57 @@
+## Interface: 11507, 11508, 11509
+## Title: Circ - Trade Ledger
+## Notes: Share professions, prices and buy requests inside your trade ledger, and track gold flow between members.
+## Author: LatentRune
+## Version: 0.13.2-test
+## X-Website: https://latentrune.github.io/circ/
+## SavedVariables: CircDB
+
+core\Namespace.lua
+core\Events.lua
+core\Timers.lua
+core\Compat.lua
+core\Settings.lua
+core\Serialize.lua
+core\Comm.lua
+data\RecipeData.lua
+data\BoeData.lua
+features\Recipes.lua
+features\Scan.lua
+features\Prices.lua
+features\Stock.lua
+features\Bags.lua
+features\Records.lua
+features\Lookup.lua
+features\Channel.lua
+features\Connection.lua
+features\Union.lua
+features\Protection.lua
+features\Sync.lua
+features\Ledger.lua
+features\Nudges.lua
+features\ItemSummary.lua
+features\Guide.lua
+ui\widgets\Popup.lua
+ui\widgets\Text.lua
+ui\widgets\MoneyInput.lua
+ui\widgets\EditBox.lua
+ui\widgets\Toolbar.lua
+ui\widgets\Suggest.lua
+ui\widgets\Tabs.lua
+ui\widgets\List.lua
+ui\Popups.lua
+ui\Tooltip.lua
+ui\Nudges.lua
+ui\Window.lua
+ui\Guide.lua
+ui\Lookup.lua
+ui\Requests.lua
+ui\RequestDialog.lua
+ui\Prices.lua
+ui\Ledger.lua
+ui\Minimap.lua
+settings\Panel.lua
+settings\Help.lua
+settings\Slash.lua
+dev\Debug.lua
+dev\Profiler.lua

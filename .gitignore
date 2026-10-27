@@ -1,0 +1,7 @@
+# Made by tools/circ-shots, tools/pr-shots.py and tools/package.py
+screenshots/
+dist/
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
